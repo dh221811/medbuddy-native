@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>Heading</Text>
+        <Text>Heading Probe </Text>
         </View>
       <TouchableOpacity style={styles.textContainer} onPress={() => {navigate('SelectLanguage')}}>
         <Text>Home</Text>
