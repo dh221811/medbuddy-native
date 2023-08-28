@@ -3,17 +3,15 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 
-export default function Home() {
+export default function Test() {
 
   const { navigate } = useNavigation();
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Heading</Text>
-        </View>
-      <TouchableOpacity style={styles.textContainer} onPress={() => {navigate('SelectLanguage')}}>
-        <Text>Home</Text>
+      <View style={styles.header} />
+      <TouchableOpacity style={styles.textContainer} onPress={() => {navigate('Test')}}>
+        <Text>Centered Text Area</Text>
       </TouchableOpacity>
       <View style={styles.footer} />
     </View>

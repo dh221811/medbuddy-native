@@ -3,18 +3,21 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 
-export default function Home() {
+export default function Preview() {
 
   const { navigate } = useNavigation();
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Heading</Text>
-        </View>
-      <TouchableOpacity style={styles.textContainer} onPress={() => {navigate('SelectLanguage')}}>
-        <Text>Home</Text>
-      </TouchableOpacity>
+      <View style={styles.header} />
+      <View style={styles.textContainer}>
+        <TouchableOpacity  style= {styles.previewBox} onPress={() => {navigate('VideoPlayer')}}>
+            <Text>Video</Text>
+        </TouchableOpacity>  
+        <TouchableOpacity style= {styles.previewBox} onPress={() => {navigate('Information')}}>
+            <Text>Information</Text>
+        </TouchableOpacity> 
+      </View>
       <View style={styles.footer} />
     </View>
   );
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 5,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'red',
@@ -39,6 +43,15 @@ const styles = StyleSheet.create({
     flex: 1.25,
     backgroundColor: 'yellow',
   },
+  previewBox:{
+    backgroundColor: 'darkgreen',
+    flex: 1,
+    alignItems: 'center', 
+justifyContent: 'center',
+height: '95%',
+margin: 5, 
+
+  }
 });
 
 
