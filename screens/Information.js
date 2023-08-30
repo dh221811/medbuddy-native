@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
-import { styles } from './Form';
-
 
 
 export default function Information() {
@@ -26,5 +24,27 @@ export default function Information() {
 };
 
 
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  header: {
+    flex: 2,
+    backgroundColor: 'blue',
+  },
+  textContainer: {
+    flex: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+  },
+  footer: {
+    flex: 1.25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+});
 
 

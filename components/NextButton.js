@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: '50%',
+        maxHeight: 50,
+        minHeight: 40,
         borderRadius: 20,
         marginLeft: 5,
     },
