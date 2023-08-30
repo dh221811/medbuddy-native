@@ -9,13 +9,9 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Heading Probe </Text>
-        </View>
       <TouchableOpacity style={styles.textContainer} onPress={() => {navigate('SelectLanguage')}}>
-        <Text>Home</Text>
+        <Text>MedBuddy - Touch to start</Text>
       </TouchableOpacity>
-      <View style={styles.footer} />
     </View>
   );
 };
@@ -28,6 +24,7 @@ const styles = StyleSheet.create({
   header: {
     flex: 2,
     backgroundColor: 'blue',
+    alignItems: 'center',
   },
   textContainer: {
     flex: 5,
