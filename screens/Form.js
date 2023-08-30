@@ -1,45 +1,88 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import NextButton from '../components/NextButton';
+import BackButton from '../components/BackButton';
+import { TextInput, Button } from 'react-native-paper';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { languages } from '../languages';
 
 export default function Form() {
+  const [prename, setPrename] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [dob, setDob] = useState(new Date()); // Initialize with a default date
+  const [insuranceNumber, setInsuranceNumber] = useState('');
 
   const { navigate } = useNavigation();
 
   return (
     <View style={styles.container}>
-      <View style={styles.header} >
-        <Text>Heading</Text>
+      <View style={styles.header} />
+      <View style={styles.form}>
+      <TextInput
+        label={languages.german.prename}
+        value={prename}
+        onChangeText={text => setPrename(text)}
+        style={styles.input}
+      />
+      <TextInput
+        label="Last Name"
+        value={lastName}
+        onChangeText={text => setLastName(text)}
+        style={styles.input}
+      />
+      <DateTimePicker
+
+        value={dob}
+        mode="date"
+        display="default"
+        maximumDate={new Date()} // Allow selecting dates in the past and future
+        onChange={(event, date) => setDob(date)}
+        testID="dateTimePicker"
+        style={styles.input}
+  
+      />
+      <TextInput
+        label="Insurance Number"
+        value={insuranceNumber}
+        onChangeText={text => setInsuranceNumber(text)}
+        style={styles.input}
+      />
       </View>
-      <TouchableOpacity style={styles.textContainer} onPress={() => {navigate('Preview')}}>
-        <Text>Form </Text>
-      </TouchableOpacity>
       <View style={styles.footer}>
-        </View>  
+        <BackButton label="Back" />
+        <NextButton label="Next" onPress={() => navigate('Preview')} />
+      </View>
     </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
   },
   header: {
-    flex: 2,
+    flex: 1,
     backgroundColor: 'blue',
   },
-  textContainer: {
-    flex: 5,
-    justifyContent: 'center',
+  form: {
+    flex: 3,
     alignItems: 'center',
-    backgroundColor: 'red',
+    justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    marginBottom: 10,
+    width: 300,
+    borderRadius: 10,
+    backgroundColor: 'lightgrey',
+    justifyContent: 'center',
   },
   footer: {
-    flex: 1.25,
-    backgroundColor: 'yellow',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
 });
-
-

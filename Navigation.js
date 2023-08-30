@@ -9,6 +9,7 @@ import MedForm from './screens/MedForm';
 import VideoPlayer from './screens/VideoPlayer';
 import Agreement from './screens/Agreement';
 import FAQ from './screens/FAQ';
+import Overview from './screens/Overview';
 
 
 
@@ -28,6 +29,7 @@ function HomeMedBuddy() {
         <MedBuddyStack.Screen name="VideoPlayer" component={VideoPlayer} />
         <MedBuddyStack.Screen name="Information" component={Information} />
         <MedBuddyStack.Screen name="MedForm" component={MedForm} />
+        <MedBuddyStack.Screen name="Overview" component={Overview} />
         <MedBuddyStack.Screen name="Agreement" component={Agreement} />
         <MedBuddyStack.Screen name="FAQ" component={FAQ} />
       </MedBuddyStack.Navigator>
