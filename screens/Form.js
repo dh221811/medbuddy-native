@@ -5,28 +5,31 @@ import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 import { TextInput, Button } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { languages } from '../languages';
+import { languages } from '../objects/languages';
+import { patient } from '../objects/patient';
 
 export default function Form() {
+
+  const _text = languages[patient.language]
   const [prename, setPrename] = useState('');
   const [lastName, setLastName] = useState('');
   const [dob, setDob] = useState(new Date()); // Initialize with a default date
   const [insuranceNumber, setInsuranceNumber] = useState('');
-
   const { navigate } = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.header} />
       <View style={styles.form}>
       <TextInput
-        label={languages.german.prename}
+        label={_text.prename}
         value={prename}
         onChangeText={text => setPrename(text)}
         style={styles.input}
       />
       <TextInput
-        label="Last Name"
+        label={_text.lastName}
         value={lastName}
         onChangeText={text => setLastName(text)}
         style={styles.input}
@@ -43,14 +46,14 @@ export default function Form() {
   
       />
       <TextInput
-        label="Insurance Number"
+        label={_text.insuranceNumber}
         value={insuranceNumber}
         onChangeText={text => setInsuranceNumber(text)}
         style={styles.input}
       />
       </View>
       <View style={styles.footer}>
-        <BackButton label="Back" />
+        <BackButton label="Back" onPress={() => navigation.goBack()}/>
         <NextButton label="Next" onPress={() => navigate('Preview')} />
       </View>
     </View>

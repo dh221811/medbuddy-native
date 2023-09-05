@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
-import { styles } from './Form';
+import { styles } from './Information';
 
 
 
