@@ -9,6 +9,7 @@ import BackButton from '../components/BackButton';
 export default function VideoPlayer() {
 
   const { navigate } = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -17,7 +18,7 @@ export default function VideoPlayer() {
         <Text>Video</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
-        <BackButton label='Back'/>
+        <BackButton label="Back" onPress={() => navigation.goBack()}/>
         <NextButton label='Next' onPress={() => {navigate('Information')}}/>
       </View>
     </View>

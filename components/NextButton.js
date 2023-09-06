@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         height: '50%',
         maxHeight: 50,
         minHeight: 40,
-        borderRadius: 20,
+        borderRadius: 30,
         marginLeft: 5,
     },
     primaryButtonText: {
