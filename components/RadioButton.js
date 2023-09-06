@@ -6,6 +6,7 @@ export default function RadioButton({ yes, setYes, no, setNo, idk, setIdk }) {
 
   const handleOptionSelect = (option, setter) => {
     setSelectedOption(option);
+    setter()
   };
 
   return (

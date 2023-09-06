@@ -8,7 +8,7 @@ export let patient = {
     size: "",
     weight: "",
     pregnancy: "",
-    ctExam: "",
+    ctExam: "test",
     vascularExam: "",
     kidneyExam: "",
     legVeinExam: "",
