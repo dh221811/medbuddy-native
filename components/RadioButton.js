@@ -6,7 +6,6 @@ export default function RadioButton({ yes, setYes, no, setNo, idk, setIdk }) {
 
   const handleOptionSelect = (option, setter) => {
     setSelectedOption(option);
-    // setter();
   };
 
   return (
@@ -18,7 +17,7 @@ export default function RadioButton({ yes, setYes, no, setNo, idk, setIdk }) {
         ]}
         onPress={() => handleOptionSelect('yes', setYes)}
       >
-        <Text style={styles.radioButtonText}>{yes}</Text>
+        <Text style={[styles.radioButtonText, selectedOption === 'yes' && { color: 'white' }]}>{yes}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
@@ -27,7 +26,7 @@ export default function RadioButton({ yes, setYes, no, setNo, idk, setIdk }) {
         ]}
         onPress={() => handleOptionSelect('no', setNo)}
       >
-        <Text style={styles.radioButtonText}>{no}</Text>
+        <Text style={[styles.radioButtonText, selectedOption === 'no' && { color: 'white' }]}>{no}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
@@ -36,7 +35,7 @@ export default function RadioButton({ yes, setYes, no, setNo, idk, setIdk }) {
         ]}
         onPress={() => handleOptionSelect('idk', setIdk)}
       >
-        <Text style={styles.radioButtonText}>{idk}</Text>
+        <Text style={[styles.radioButtonText, selectedOption === 'idk' && { color: 'white' }]}>{idk}</Text>
       </TouchableOpacity>
     </View>
   );
