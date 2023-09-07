@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
-import { TextInput, Button } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { languages } from '../objects/languages';
 import { patient } from '../objects/patient';

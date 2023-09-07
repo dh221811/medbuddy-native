@@ -117,8 +117,8 @@ export default function Information() {
   
   return (
     <View style={styles.container}>
+            <Image style={styles.logo} source={require('../images/logo.png')}/>
       <View style={styles.header}>
-      <Image style={styles.logo} source={require('../images/logo.png')}/>
         <Text style={styles.heading}>{_text.informationHeading}</Text>
         </View>
       {content}
@@ -145,15 +145,17 @@ export const styles = StyleSheet.create({
   logo: {
     width: 80,
     height: 80,
-    marginLeft: 0,
+    position: 'absolute',
+    left: 0,
+    top: 0,
   },
   header: {
-    flex: 2,
-    justifyContent: 'flex-start',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   heading: {
-    fontSize: 40,
+    fontSize: 35,
   },
   textContainer: {
     flex: 5,
@@ -164,7 +166,7 @@ export const styles = StyleSheet.create({
   textHeading: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 75,
   },
   textParagraph: {
     fontSize: 25,

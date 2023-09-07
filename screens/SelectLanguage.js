@@ -41,7 +41,9 @@ export default function SelectLanguage() {
     logo: {
       width: 80,
       height: 80,
-      marginLeft: 15,
+      position: 'absolute',
+      left: 0,
+      top: 0,
     },
     gridContainer: {
       width: windowWidth * 0.75,
@@ -78,8 +80,8 @@ export default function SelectLanguage() {
 
   return (
     <View style={styles.container}>
+              <Image style={styles.logo} source={require('../images/logo.png')}/>
       <SafeAreaView style={styles.header}>
-        <Image style={styles.logo} source={require('../images/logo.png')}/>
       </SafeAreaView>
       <View style={styles.gridContainer}>
         {languageOptions.map((language, index) => (

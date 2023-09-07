@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { TextInput } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
@@ -9,6 +10,8 @@ import RadioButton from '../components/RadioButton';
 
 export default function MedForm() {
 
+  const [size, setSize] = useState('');
+  const [weight, setWeight] = useState('');
   const [pregnancy, setPregnancy] = useState('');
   const [ctExam, setCtExam] = useState('');
   const [vascularExam, setVascularExam] = useState('');
@@ -74,7 +77,19 @@ export default function MedForm() {
     case 0:
       content = (
         <View style={styles.textContainer}>
-          <Text>0</Text>
+          <TextInput
+        label={_text.size}
+        value={size}
+        onChangeText={text => setSize(text)}
+        style={styles.input}
+      />
+
+          <TextInput
+        label={_text.weight}
+        value={weight}
+        onChangeText={text => setWeight(text)}
+        style={styles.input}
+      />
         </View>
       );
       break;
@@ -83,13 +98,15 @@ export default function MedForm() {
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.question1}</Text>
+          <View style={styles.questContainer}>
           <Text style={styles.textQuestion}>{_text.question1a}</Text>
+          </View>
           <RadioButton yes={_text.yes} setYes={() => setCtExam(_text.yes)} no={_text.no} setNo={() => setCtExam(_text.no)} idk={_text.idk} setIdk={() => setCtExam(_text.idk)}/>
           <Text style={styles.textQuestion}>{_text.question1b}</Text>
           <RadioButton yes={_text.yes} setYes={() => setVascularExam(_text.yes)} no={_text.no} setNo={() => setVascularExam(_text.no)} idk={_text.idk} setIdk={() => setVascularExam(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question1b}</Text>
+          <Text style={styles.textQuestion}>{_text.question1c}</Text>
           <RadioButton yes={_text.yes} setYes={() => setKidneyCondition(_text.yes)} no={_text.no} setNo={() => setKidneyCondition(_text.no)} idk={_text.idk} setIdk={() => setKidneyCondition(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question1b}</Text>
+          <Text style={styles.textQuestion}>{_text.question1d}</Text>
           <RadioButton yes={_text.yes} setYes={() => setLegVeinExam(_text.yes)} no={_text.no} setNo={() => setLegVeinExam(_text.no)} idk={_text.idk} setIdk={() => setLegVeinExam(_text.idk)}/>
         </View>
       );
@@ -103,9 +120,9 @@ export default function MedForm() {
           <RadioButton yes={_text.yes} setYes={() => setNausea(_text.yes)} no={_text.no} setNo={() => setNausea(_text.no)} idk={_text.idk} setIdk={() => setNausea(_text.idk)}/>
           <Text style={styles.textQuestion}>{_text.question2b}</Text>
           <RadioButton yes={_text.yes} setYes={() => setAsthma(_text.yes)} no={_text.no} setNo={() => setAsthma(_text.no)} idk={_text.idk} setIdk={() => setAsthma(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question2b}</Text>
+          <Text style={styles.textQuestion}>{_text.question2c}</Text>
           <RadioButton yes={_text.yes} setYes={() => setRash(_text.yes)} no={_text.no} setNo={() => setRash(_text.no)} idk={_text.idk} setIdk={() => setRash(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question2b}</Text>
+          <Text style={styles.textQuestion}>{_text.question2d}</Text>
           <RadioButton yes={_text.yes} setYes={() => setSeizures(_text.yes)} no={_text.no} setNo={() => setSeizures(_text.no)} idk={_text.idk} setIdk={() => setSeizures(_text.idk)}/>
         </View>
       );
@@ -116,16 +133,14 @@ export default function MedForm() {
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.question3}</Text>
           <Text style={styles.textQuestion}>{_text.question3a}</Text>
-          <RadioButton yes={_text.yes} setYes={() => setShivering(_text.yes)} no={_text.no} setNo={() => setShivering(_text.no)} idk={_text.idk} setIdk={() => setShivering(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question3b}</Text>
           <RadioButton yes={_text.yes} setYes={() => setAllergies(_text.yes)} no={_text.no} setNo={() => setAllergies(_text.no)} idk={_text.idk} setIdk={() => setAllergies(_text.idk)}/>
           <Text style={styles.textQuestion}>{_text.question3b}</Text>
           <RadioButton yes={_text.yes} setYes={() => setHeartCondition(_text.yes)} no={_text.no} setNo={() => setHeartCondition(_text.no)} idk={_text.idk} setIdk={() => setHeartCondition(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question3b}</Text>
+          <Text style={styles.textQuestion}>{_text.question3c}</Text>
           <RadioButton yes={_text.yes} setYes={() => setKidneyCondition(_text.yes)} no={_text.no} setNo={() => setKidneyCondition(_text.no)} idk={_text.idk} setIdk={() => setKidneyCondition(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question3b}</Text>
+          <Text style={styles.textQuestion}>{_text.question3d}</Text>
           <RadioButton yes={_text.yes} setYes={() => setThyroidCondition(_text.yes)} no={_text.no} setNo={() => setThyroidCondition(_text.no)} idk={_text.idk} setIdk={() => setThyroidCondition(_text.idk)}/>
-          <Text style={styles.textQuestion}>{_text.question3b}</Text>
+          <Text style={styles.textQuestion}>{_text.question3e}</Text>
           <RadioButton yes={_text.yes} setYes={() => setDiabetes(_text.yes)} no={_text.no} setNo={() => setDiabetes(_text.no)} idk={_text.idk} setIdk={() => setDiabetes(_text.idk)}/>
         </View>
       );
@@ -149,6 +164,7 @@ export default function MedForm() {
   
   return (
     <View style={styles.container}>
+              <Image style={styles.logo} source={require('../images/logo.png')}/>
       <View style={styles.header}>
         <Text style={styles.heading}>{_text.questionnaireHeading}</Text>
         </View>
@@ -174,12 +190,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   heading: {
-    fontSize: 40,
+    fontSize: 35,
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    position: 'absolute',
+    top: 0,
+    left: 0,
   },
   textContainer: {
     flex: 5,
@@ -190,11 +213,20 @@ const styles = StyleSheet.create({
   textHeading: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 75,
+    marginBottom: 20,
   },
   textQuestion: {
     fontSize: 25,
     marginTop: 5,
+  },
+  input: {
+    height: 40,
+    marginBottom: 10,
+    width: 300,
+    borderRadius: 10,
+    backgroundColor: 'lightblue',
+    justifyContent: 'center',
   },
   footer: {
     flex: 1.25,

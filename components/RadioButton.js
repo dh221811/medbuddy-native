@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   radioButton: {
-    width: 120,
-    maxWidth: 120,
+    width: 110,
+    maxWidth: 110,
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     height: '50%',
-    maxHeight: 50,
+    maxHeight: 40,
     minHeight: 40,
     borderRadius: 20,
     borderWidth: 2,
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
   },
   radioButtonText: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 18,
   },
 });
