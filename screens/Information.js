@@ -11,10 +11,10 @@ export default function Information() {
   const _text = languages[patient.language]
   const { navigate } = useNavigation();
   const navigation = useNavigation();
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   function handleNext() {
-    if (page < 7) {
+    if (page < 8) {
         setPage(page + 1);
       }
     else {
@@ -23,7 +23,7 @@ export default function Information() {
     };
 
     function handleBack() {
-      if (page === 0) {
+      if (page === 1) {
         navigation.goBack();
         }
       else {
@@ -35,7 +35,7 @@ export default function Information() {
   let content;
 
   switch (page) {
-    case 0:
+    case 1:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information1head}</Text>
@@ -44,7 +44,7 @@ export default function Information() {
       );
       break;
   
-    case 1:
+    case 2:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information2head}</Text>
@@ -53,7 +53,7 @@ export default function Information() {
       );
       break;
   
-    case 2:
+    case 3:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information3head}</Text>
@@ -62,7 +62,7 @@ export default function Information() {
       );
       break;
   
-    case 3:
+    case 4:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information4head}</Text>
@@ -71,7 +71,7 @@ export default function Information() {
       );
       break;
   
-    case 4:
+    case 5:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information5head}</Text>
@@ -80,7 +80,7 @@ export default function Information() {
       );
       break;
   
-    case 5:
+    case 6:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information6head}</Text>
@@ -89,7 +89,7 @@ export default function Information() {
       );
       break;
   
-    case 6:
+    case 7:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information7head}</Text>
@@ -98,7 +98,7 @@ export default function Information() {
       );
       break;
   
-    case 7:
+    case 8:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information8head}</Text>
@@ -123,6 +123,7 @@ export default function Information() {
         </View>
       {content}
       <View style={styles.footer}>
+        <Text>{page}/8</Text>
         <BackButton 
         label='Back'
         onPress={handleBack}

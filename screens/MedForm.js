@@ -34,10 +34,10 @@ export default function MedForm() {
   const _text = languages[patient.language]
   const { navigate } = useNavigation();
   const navigation = useNavigation();
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   
   function handleNext() {
-    if (page < 4) {
+    if (page < 5) {
       setPage(page + 1);
       patient.ctExam = ctExam;
       patient.pregnancy = pregnancy;
@@ -62,7 +62,7 @@ export default function MedForm() {
     };
 
     function handleBack() {
-      if (page === 0) {
+      if (page === 1) {
         navigation.goBack();
         }
       else {
@@ -74,7 +74,7 @@ export default function MedForm() {
   let content;
 
   switch (page) {
-    case 0:
+    case 1:
       content = (
         <View style={styles.textContainer}>
           <TextInput
@@ -94,13 +94,11 @@ export default function MedForm() {
       );
       break;
   
-    case 1:
+    case 2:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.question1}</Text>
-          <View style={styles.questContainer}>
           <Text style={styles.textQuestion}>{_text.question1a}</Text>
-          </View>
           <RadioButton yes={_text.yes} setYes={() => setCtExam(_text.yes)} no={_text.no} setNo={() => setCtExam(_text.no)} idk={_text.idk} setIdk={() => setCtExam(_text.idk)}/>
           <Text style={styles.textQuestion}>{_text.question1b}</Text>
           <RadioButton yes={_text.yes} setYes={() => setVascularExam(_text.yes)} no={_text.no} setNo={() => setVascularExam(_text.no)} idk={_text.idk} setIdk={() => setVascularExam(_text.idk)}/>
@@ -112,7 +110,7 @@ export default function MedForm() {
       );
       break;
   
-    case 2:
+    case 3:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.question2}</Text>
@@ -128,7 +126,7 @@ export default function MedForm() {
       );
       break;
   
-    case 3:
+    case 4:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.question3}</Text>
@@ -146,7 +144,7 @@ export default function MedForm() {
       );
       break;
   
-    case 4:
+    case 5:
       content = (
         <View style={styles.textContainer}>
           <Text>Diabetes, Medication, Pacemaker</Text>
@@ -164,18 +162,19 @@ export default function MedForm() {
   
   return (
     <View style={styles.container}>
-              <Image style={styles.logo} source={require('../images/logo.png')}/>
+        <Image style={styles.logo} source={require('../images/logo.png')}/>
       <View style={styles.header}>
         <Text style={styles.heading}>{_text.questionnaireHeading}</Text>
         </View>
       {content}
       <View style={styles.footer}>
+        <Text>{page}/6</Text>
         <BackButton 
-        label='Back'
+        label={_text.backButton}
         onPress={handleBack}
         />
         <NextButton
-          label='Next'
+          label={_text.nextButton}
           onPress={handleNext}
         />
       </View>
