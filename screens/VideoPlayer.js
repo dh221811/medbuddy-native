@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
-
+import BackNextButton from '../components/BackNextButton';
+import Video from 'react-native-video';
 
 
 export default function VideoPlayer() {
@@ -14,12 +13,10 @@ export default function VideoPlayer() {
   return (
     <View style={styles.container}>
       <View style={styles.header} />
-      <TouchableOpacity style={styles.textContainer}>
-        <Text>Video</Text>
-      </TouchableOpacity>
+      <View style={styles.textContainer}> 
+        </View>
       <View style={styles.footer}>
-        <BackButton label="Back" onPress={() => navigation.goBack()}/>
-        <NextButton label='Next' onPress={() => {navigate('Information')}}/>
+        <BackNextButton onBackPress={() => navigation.goBack()} onNextPress={() => {navigate('Information')}}/>
       </View>
     </View>
   );
@@ -44,7 +41,7 @@ const styles = StyleSheet.create({
     flex: 1.25,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 });
 

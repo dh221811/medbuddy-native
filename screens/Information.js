@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
+import BackNextButton from '../components/BackNextButton';
 import { languages } from '../objects/languages';
 import { patient } from '../objects/patient';
 
@@ -124,14 +123,7 @@ export default function Information() {
       {content}
       <View style={styles.footer}>
         <Text>{page}/8</Text>
-        <BackButton 
-        label='Back'
-        onPress={handleBack}
-        />
-        <NextButton
-          label='Next'
-          onPress={handleNext}
-        />
+        <BackNextButton onBackPress={handleBack} onNextPress={handleNext}/>
       </View>
     </View>
   );
@@ -177,6 +169,6 @@ export const styles = StyleSheet.create({
     flex: 1.25,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 });

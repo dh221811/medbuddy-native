@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
+import BackNextButton from '../components/BackNextButton';
 import { styles } from './Information';
 
 
@@ -19,8 +18,7 @@ export default function Overview() {
         <Text>Overview</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
-        <BackButton label="Back" onPress={() => navigation.goBack()}/>
-        <NextButton label='Next' onPress={() => {navigate('Agreement')}}/>
+        <BackNextButton label="Back" onBackPress={() => navigation.goBack()} onNextPress={() => {navigate('Agreement')}}/>
       </View>
     </View>
   );

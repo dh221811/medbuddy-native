@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
 import { languages } from '../objects/languages';
 import { patient } from '../objects/patient';
 import RadioButton from '../components/RadioButton';
+import BackNextButton from '../components/BackNextButton';
 
 export default function MedForm() {
 
@@ -169,14 +168,7 @@ export default function MedForm() {
       {content}
       <View style={styles.footer}>
         <Text>{page}/6</Text>
-        <BackButton 
-        label={_text.backButton}
-        onPress={handleBack}
-        />
-        <NextButton
-          label={_text.nextButton}
-          onPress={handleNext}
-        />
+        <BackNextButton onBackPress={handleBack} onNextPress={handleNext}/>
       </View>
     </View>
   );
@@ -212,7 +204,7 @@ const styles = StyleSheet.create({
   textHeading: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 75,
+    marginTop: 70,
     marginBottom: 20,
   },
   textQuestion: {
@@ -231,6 +223,6 @@ const styles = StyleSheet.create({
     flex: 1.25,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 });
