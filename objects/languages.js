@@ -262,11 +262,11 @@ export const languages = {
         question2d:'seizures, unconsciousness',
         question2e:'shivering attacks',
         question3:'Do you suffer from any of the following medical conditions?',
-        question3a:'allergies that require treatment?',
-        question3b:'of the heart',
-        question3c:'of the kidney / adrenal gland?',
-        question3d:'of the thyroid gland?',
-        question3e:'diabetes?',
+        question3a:'Allergies that require treatment?',
+        question3b:'... of the heart?',
+        question3c:'... of the kidney / adrenal gland?',
+        question3d:'... of the thyroid gland?',
+        question3e:'Diabetes?',
         // auwahl box für medikamenten Auswahl 
         questionMed: 'Which diabetes medications do you take?',
 

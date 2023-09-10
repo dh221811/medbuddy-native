@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
-import { TextInput, Button } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { languages } from '../objects/languages';
 import { patient } from '../objects/patient';
+import BackNextButton from '../components/BackNextButton';
 
 export default function Form() {
 
@@ -53,8 +52,7 @@ export default function Form() {
       />
       </View>
       <View style={styles.footer}>
-        <BackButton label="Back" onPress={() => navigation.goBack()}/>
-        <NextButton label="Next" onPress={() => navigate('Preview')} />
+        <BackNextButton onBackPress={() => navigation.goBack()} onNextPress={() => navigate('Preview')}/>
       </View>
     </View>
   );
@@ -86,6 +84,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 });

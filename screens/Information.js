@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
+import BackNextButton from '../components/BackNextButton';
 import { languages } from '../objects/languages';
 import { patient } from '../objects/patient';
 
@@ -11,10 +10,10 @@ export default function Information() {
   const _text = languages[patient.language]
   const { navigate } = useNavigation();
   const navigation = useNavigation();
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   function handleNext() {
-    if (page < 7) {
+    if (page < 8) {
         setPage(page + 1);
       }
     else {
@@ -23,7 +22,7 @@ export default function Information() {
     };
 
     function handleBack() {
-      if (page === 0) {
+      if (page === 1) {
         navigation.goBack();
         }
       else {
@@ -35,7 +34,7 @@ export default function Information() {
   let content;
 
   switch (page) {
-    case 0:
+    case 1:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information1head}</Text>
@@ -44,7 +43,7 @@ export default function Information() {
       );
       break;
   
-    case 1:
+    case 2:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information2head}</Text>
@@ -53,7 +52,7 @@ export default function Information() {
       );
       break;
   
-    case 2:
+    case 3:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information3head}</Text>
@@ -62,7 +61,7 @@ export default function Information() {
       );
       break;
   
-    case 3:
+    case 4:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information4head}</Text>
@@ -71,7 +70,7 @@ export default function Information() {
       );
       break;
   
-    case 4:
+    case 5:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information5head}</Text>
@@ -80,7 +79,7 @@ export default function Information() {
       );
       break;
   
-    case 5:
+    case 6:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information6head}</Text>
@@ -89,7 +88,7 @@ export default function Information() {
       );
       break;
   
-    case 6:
+    case 7:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information7head}</Text>
@@ -98,7 +97,7 @@ export default function Information() {
       );
       break;
   
-    case 7:
+    case 8:
       content = (
         <View style={styles.textContainer}>
           <Text style={styles.textHeading}>{_text.information8head}</Text>
@@ -117,20 +116,14 @@ export default function Information() {
   
   return (
     <View style={styles.container}>
+            <Image style={styles.logo} source={require('../images/logo.png')}/>
       <View style={styles.header}>
-      <Image style={styles.logo} source={require('../images/logo.png')}/>
         <Text style={styles.heading}>{_text.informationHeading}</Text>
         </View>
       {content}
       <View style={styles.footer}>
-        <BackButton 
-        label='Back'
-        onPress={handleBack}
-        />
-        <NextButton
-          label='Next'
-          onPress={handleNext}
-        />
+        <Text>{page}/8</Text>
+        <BackNextButton onBackPress={handleBack} onNextPress={handleNext}/>
       </View>
     </View>
   );
@@ -145,15 +138,17 @@ export const styles = StyleSheet.create({
   logo: {
     width: 80,
     height: 80,
-    marginLeft: 0,
+    position: 'absolute',
+    left: 0,
+    top: 0,
   },
   header: {
-    flex: 2,
-    justifyContent: 'flex-start',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   heading: {
-    fontSize: 40,
+    fontSize: 35,
   },
   textContainer: {
     flex: 5,
@@ -164,7 +159,7 @@ export const styles = StyleSheet.create({
   textHeading: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 75,
   },
   textParagraph: {
     fontSize: 25,
@@ -174,6 +169,6 @@ export const styles = StyleSheet.create({
     flex: 1.25,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 });

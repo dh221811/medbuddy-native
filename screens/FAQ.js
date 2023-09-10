@@ -1,15 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
+import BackNextButton from '../components/BackNextButton';
 import { styles } from './Information';
 
 
 
 export default function FAQ() {
-
-  const { navigate } = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -18,7 +15,7 @@ export default function FAQ() {
         <Text>FAQ</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
-        <NextButton label='Finished'/>
+        <BackNextButton/>
       </View>
     </View>
   );
